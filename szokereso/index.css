@@ -1,0 +1,12 @@
+p {
+    border: solid 1px blue;
+    padding: 8px;
+}
+
+:root {
+    --border-color: red;
+    --text-color: #3c3744ff;
+    --text-background: #798dac;
+    --text-background-hover: #e0e0e0;
+    --background-color: #fff;
+}

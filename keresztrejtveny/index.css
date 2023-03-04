@@ -1,0 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6FAFA;
+}
+
+:root {
+  --text-color: #3c3744ff;
+  --text-background: #798dac;
+  --text-background-hover: #e0e0e0;
+  --background-color: #fff;
+}
