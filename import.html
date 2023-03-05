@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TSV to JSON Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+    </style>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-center text-2xl font-bold mb-4">TSV to JSON 
+Converter</h1>
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" 
+for="csv-data">
+                    Paste your TSV data here:
+                </label>
+                <textarea class="w-full px-3 py-2 border rounded-lg" 
+id="csv-data" name="csv-data" rows="8"></textarea>
+            </div>
+            <div class="flex justify-center">
+                <button class="px-4 py-2 bg-blue-500 text-white font-bold 
+rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" 
+type="button" onclick="convertTsvToJson()">
+                    Convert
+                </button>
+            </div>
+        </form>
+        <div class="mt-8">
+            <h2 class="text-lg font-bold mb-2">JSON output:</h2>
+            <pre id="json-output" class="bg-gray-200 px-4 py-2 
+rounded-lg"></pre>
+        </div>
+    </div>
+    <script>
+        function convertTsvToJson() {
+            const csvData = document.getElementById('csv-data').value;
+            const lines = csvData.split('\n');
+            const headers = lines[0].split('\t');
+            const result = [];
+            for (let i = 1; i < lines.length; i++) {
+                const obj = {};
+                const currentline = lines[i].split('\t');
+                for (let j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+                result.push(obj);
+            }
+            const jsonOutput = JSON.stringify(result);
+            document.getElementById('json-output').textContent = 
+jsonOutput;
+        }
+    </script>
+</body>
+</html>
