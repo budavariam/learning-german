@@ -63,7 +63,7 @@ rounded-lg">[{"src":"a","dst":"b"}]</pre>
                 }
                 result.push(obj);
             }
-            const jsonOutput = JSON.stringify(result);
+            const jsonOutput = JSON.stringify(result, null, 2);
             document.getElementById('json-output').textContent = jsonOutput;
         }
         function copyJsonOutput() {
