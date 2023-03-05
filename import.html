@@ -27,12 +27,11 @@
                 </label>
                 <textarea class="w-full px-3 py-2 border rounded-lg" id="csv-data" name="csv-data" rows="8">
 src	dst
-a	b
-                </textarea>
+a	b</textarea>
             </div>
             <div class="flex justify-center">
                 <button
-                    class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
+                    class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue mr-2"
                     type="button" onclick="convertTsvToJson()">
                     Convert
                 </button>
@@ -42,11 +41,12 @@ a	b
                     Copy
                 </button>
             </div>
+
         </form>
         <div class="mt-8">
             <h2 class="text-lg font-bold mb-2">JSON output:</h2>
             <pre id="json-output" class="bg-gray-200 px-4 py-2 
-rounded-lg"></pre>
+rounded-lg">[{"src":"a","dst":"b"}]</pre>
         </div>
     </div>
     <script>
