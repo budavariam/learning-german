@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,24 +16,27 @@
     </style>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
+
 <body class="bg-gray-100">
     <div class="container mx-auto py-8">
-        <h1 class="text-center text-2xl font-bold mb-4">TSV to JSON 
-Converter</h1>
+        <h1 class="text-center text-2xl font-bold mb-4">TSV to JSON Converter</h1>
         <form>
             <div class="mb-4">
-                <label class="block text-gray-700 font-bold mb-2" 
-for="csv-data">
+                <label class="block text-gray-700 font-bold mb-2" for="csv-data">
                     Paste your TSV data here:
                 </label>
-                <textarea class="w-full px-3 py-2 border rounded-lg" 
-id="csv-data" name="csv-data" rows="8"></textarea>
+                <textarea class="w-full px-3 py-2 border rounded-lg" id="csv-data" name="csv-data" rows="8"></textarea>
             </div>
             <div class="flex justify-center">
-                <button class="px-4 py-2 bg-blue-500 text-white font-bold 
-rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" 
-type="button" onclick="convertTsvToJson()">
+                <button
+                    class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
+                    type="button" onclick="convertTsvToJson()">
                     Convert
+                </button>
+                <button
+                    class="px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-green-700 focus:outline-none focus:shadow-outline-green"
+                    type="button" onclick="copyJsonOutput()">
+                    Copy
                 </button>
             </div>
         </form>
@@ -57,9 +61,15 @@ rounded-lg"></pre>
                 result.push(obj);
             }
             const jsonOutput = JSON.stringify(result);
-            document.getElementById('json-output').textContent = 
-jsonOutput;
+            document.getElementById('json-output').textContent = jsonOutput;
+        }
+        function copyJsonOutput() {
+            const jsonOutput = document.getElementById('json-output').textContent;
+            navigator.clipboard.writeText(jsonOutput)
+                .then(() => alert('JSON output copied to clipboard'))
+                .catch((err) => console.error('Failed to copy JSON output: ', err));
         }
     </script>
 </body>
+
 </html>
